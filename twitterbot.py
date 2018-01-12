@@ -30,8 +30,8 @@ class TwitterAuth:
 
 # Post tweet to account.
 def PostTweet(title, link):
-	# Truncate title and append ... at the end if length exceeds 113 chars.
-	title = (title[:113] + '...') if len(title) > 113 else title
+	# Truncate title and append ... at the end if length exceeds 250 chars (which is enough space for a t.co link).
+	title = (title[:250] + '...') if len(title) > 250 else title
 	message = title + " " + link
 	try:
 		# Tweet message.
