@@ -51,3 +51,22 @@ crontab examples:
 ```
 
 Use the [cron schedule expression editor](https://crontab.guru/) to easily create crons.
+
+
+## Questions
+
+### How do I retweet a specific user?
+
+Use the [Twitter search operators](https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators).
+
+For example, search for user account `@soccerfan`:
+
+```py 
+RetweetIncludeWords = ["from:soccerfan"]
+```
+
+Search for hashtag `#football` from user account `@soccerfan`:
+
+```py 
+RetweetIncludeWords = ["#football+from:soccerfan"]
+```
