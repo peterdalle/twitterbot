@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Get RSS feed items from http://example.net/feed/ and post tweets to @youraccount.
-# By Peter M. Dahlgren, @peterdalle
+# By Peter M. Dahlgren, @peterdalle https://github.com/peterdalle/twitterbot/
 
 from twython import Twython, TwythonError
 import csv
@@ -19,6 +19,8 @@ class Settings:
 	FeedUrl = "http://example.net/feed/"			# RSS feed to read and post tweets from.
 	PostedUrlsOutputFile = "posted-urls.log"		# Log file to save all tweeted RSS links (one URL per line).
 	PostedRetweetsOutputFile = "posted-retweets.log"	# Log file to save all retweeted tweets (one tweetid per line).
+	RetweetIncludeWords = ["#hashtag"]			# Include tweets with these words when retweeting.
+	RetweetExcludeWords = []				# Do not include tweets with these words when retweeting.
 
 # Twitter authentication settings. Create a Twitter app at https://apps.twitter.com/ and
 # generate key, secret etc, and insert them below.
@@ -80,12 +82,9 @@ def MarkUrlAsPosted(url):
 
 # Search for particular keywords in tweets and retweet those tweets.
 def SearchAndRetweet():
-	exclude_words = [] 		# Do not include tweets with these words.
-	include_words = ["#hashtag"]	# Include tweets with these words.
-
 	# Create Twitter search query with included words minus the excluded words.
-	filter = " OR ".join(include_words)
-	blacklist = " -".join(exclude_words)
+	filter = " OR ".join(Settings.RetweetIncludeWords)
+	blacklist = " -".join(Settings.RetweetExcludeWords)
 	keywords = filter + blacklist
 
 	# Connect to Twitter.
