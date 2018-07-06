@@ -20,7 +20,7 @@ Please contact me at [@peterdalle](http://twitter.com/peterdalle) or [peterdahlg
 4. Modifiy the settings in the source code.
    - Modify `FeedUrl` to the RSS feed you want to read.
    - Modify the variables in the `TwitterAuth` class and add keys, tokens etc. for connecting to your Twitter app.
-   - Modify `include_words` for keywords you want to search and retweet, and `exclude_words` for keywords you would like to exclude from retweeting. For example `include_words = ["foo"]` and `exclude_words = ["bar"]` will include any tweet with the word "foo", as long as the word "bar" is absent.
+   - Modify `RetweetIncludeWords` for keywords you want to search and retweet, and `RetweetExcludeWords` for keywords you would like to exclude from retweeting. For example `RetweetIncludeWords = ["foo"]` and `RetweetExcludeWords = ["bar"]` will include any tweet with the word "foo", as long as the word "bar" is absent. This list can also be left empty, i.e. `RetweetExcludeWords = []`.
 
 ## Usage
 
