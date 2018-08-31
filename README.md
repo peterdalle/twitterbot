@@ -7,8 +7,6 @@ Twitterbot is a simple Python application for:
 
 Both functions (Reading RSS and retweeting) can be used independently. The bot is limited to handle one feed and one Twitter account.
 
-Please contact me at [@peterdalle](http://twitter.com/peterdalle) or [peterdahlgren.com](http://peterdahlgren.com/) if you have any questions.
-
 ## Install
 
 1. Download or git clone Twitterbot:
@@ -69,4 +67,24 @@ Search for hashtag `#football` from user account `@soccerfan`:
 
 ```py 
 RetweetIncludeWords = ["#football+from:soccerfan"]
+```
+
+### How do I post the description instead of the title?
+
+Modify the `ReadRssAndTweet()` method and use `item["description"]` for title instead, like so:
+
+```py
+# Read RSS and post tweet.
+def ReadRssAndTweet(url):
+	feed = feedparser.parse(url)
+	for item in feed["items"]:
+		title = item["description"]   # <--------------- Modify this line.
+		link = item["link"]
+		# Make sure we don't post any dubplicates.
+		if not (IsUrlAlreadyPosted(link)):
+			PostTweet(title, link)
+			MarkUrlAsPosted(link)
+			print("Posted: " + link)
+		else:
+			print("Already posted: " + link)
 ```
