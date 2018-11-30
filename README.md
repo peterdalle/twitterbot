@@ -71,20 +71,18 @@ RetweetIncludeWords = ["#football+from:soccerfan"]
 
 ### How do I post the description instead of the title?
 
-Modify the `ReadRssAndTweet()` method and use `item["description"]` for title instead, like so:
+Modify the `compose_message()` function and use the `description` variable (left unused at the moment) instead of `title`.
+
+In other words, replace this:
 
 ```py
-# Read RSS and post tweet.
-def ReadRssAndTweet(url):
-	feed = feedparser.parse(url)
-	for item in feed["items"]:
-		title = item["description"]   # <--------------- Modify this line.
-		link = item["link"]
-		# Make sure we don't post any dubplicates.
-		if not (IsUrlAlreadyPosted(link)):
-			PostTweet(title, link)
-			MarkUrlAsPosted(link)
-			print("Posted: " + link)
-		else:
-			print("Already posted: " + link)
+message = shorten_text(title, maxlength=250) + " " + link
 ```
+
+With this:
+
+```py
+message = shorten_text(description, maxlength=250) + " " + link
+```
+
+Make sure to keep `maxlength=250` since that will leave some room for Twitter's `t.co` links as well.
