@@ -50,39 +50,6 @@ crontab examples:
 
 Use the [cron schedule expression editor](https://crontab.guru/) to easily create crons.
 
-
 ## Questions
 
-### How do I retweet a specific user?
-
-Use the [Twitter search operators](https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators).
-
-For example, search for user account `@soccerfan`:
-
-```py 
-RetweetIncludeWords = ["from:soccerfan"]
-```
-
-Search for hashtag `#football` from user account `@soccerfan`:
-
-```py 
-RetweetIncludeWords = ["#football+from:soccerfan"]
-```
-
-### How do I post the description instead of the title?
-
-Modify the `compose_message()` function and use the `description` variable (left unused at the moment) instead of `title`.
-
-In other words, replace this:
-
-```py
-message = shorten_text(title, maxlength=250) + " " + link
-```
-
-With this:
-
-```py
-message = shorten_text(description, maxlength=250) + " " + link
-```
-
-Make sure to keep `maxlength=250` since that will leave some room for Twitter's `t.co` links as well.
+See [Questions and answers](https://github.com/peterdalle/twitterbot/wiki) in the wiki.
