@@ -128,7 +128,8 @@ def get_query() -> str:
     """
     include = " OR ".join(Settings.retweet_include_words)
     exclude = " -".join(Settings.retweet_exclude_words)
-    return include + exclude
+    exclude = "-" + exclude if exclude else ""
+    return include + " " + exclude
 
 
 def search_and_retweet(query: str, count=10):
