@@ -16,9 +16,9 @@ Both functions (Reading RSS and retweeting) can be used independently. The bot i
    - `pip install twython`
 3. Create a [Twitter application](https://apps.twitter.com/), and generate keys, tokens etc.
 4. Modifiy the settings in the source code.
-   - Modify `FeedUrl` to the RSS feed you want to read.
+   - Modify `feed_url` to the RSS feed you want to read.
    - Modify the variables in the `TwitterAuth` class and add keys, tokens etc. for connecting to your Twitter app.
-   - Modify `RetweetIncludeWords` for keywords you want to search and retweet, and `RetweetExcludeWords` for keywords you would like to exclude from retweeting. For example `RetweetIncludeWords = ["foo"]` and `RetweetExcludeWords = ["bar"]` will include any tweet with the word "foo", as long as the word "bar" is absent. This list can also be left empty, i.e. `RetweetExcludeWords = []`.
+   - Modify `retweet_include_words` for keywords you want to search and retweet, and `retweet_exclude_words` for keywords you would like to exclude from retweeting. For example `retweet_include_words = ["foo"]` and `retweet_exclude_words = ["bar"]` will include any tweet with the word "foo", as long as the word "bar" is absent. This list can also be left empty, i.e. `retweet_exclude_words = []`.
 
 ## Usage
 
