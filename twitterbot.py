@@ -18,7 +18,7 @@ class Settings:
     posted_urls_output_file = "posted-urls.log"
 
     # Log file to save all retweeted tweets (one tweetid per line).
-    posted_retweets_url_file = "posted-retweets.log"
+    posted_retweets_output_file = "posted-retweets.log"
 
     # Include tweets with these words when retweeting.
     retweet_include_words = ["#hashtag"]
@@ -153,11 +153,11 @@ def search_and_retweet(query: str, count=10):
     for tweet in search_results["statuses"]:
         # Make sure we don't retweet any dubplicates.
         if not is_in_logfile(
-                    tweet["id_str"], Settings.posted_retweets_url_file):
+                    tweet["id_str"], Settings.posted_retweets_output_file):
             try:
                 twitter.retweet(id=tweet["id_str"])
                 write_to_logfile(
-                    tweet["id_str"], Settings.posted_retweets_url_file)
+                    tweet["id_str"], Settings.posted_retweets_output_file)
                 print("Retweeted {} (id {})".format(shorten_text(
                     tweet["text"], maxlength=40), tweet["id_str"]))
             except TwythonError as e:
