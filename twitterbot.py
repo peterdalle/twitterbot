@@ -40,8 +40,8 @@ class TwitterAuth:
 
 
 def compose_message(item: feedparser.FeedParserDict) -> str:
-    """Compose a tweet from title, link, and description, and then return the
-    final tweet message.
+    """Compose a tweet from an RSS item (title, link, description)
+    and return final tweet message.
 
     Parameters
     ----------
@@ -67,12 +67,12 @@ def shorten_text(text: str, maxlength: int) -> str:
     text: str
         The text you want to shorten.
     maxlength: int
-        The maximum character length oft the text string.
+        The maximum character length of the text string.
 
     Returns
     -------
     str
-        Returns a text shortened text string.
+        Returns a shortened text string.
     """
     return (text[:maxlength] + '...') if len(text) > maxlength else text
 
@@ -124,7 +124,7 @@ def get_query() -> str:
     Returns
     -------
     str
-        Returns a string with Twitter search query.
+        Returns a string with the Twitter search query.
     """
     include = " OR ".join(Settings.retweet_include_words)
     exclude = " -".join(Settings.retweet_exclude_words)
