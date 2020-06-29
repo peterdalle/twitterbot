@@ -151,6 +151,7 @@ def search_and_retweet(query: str, count=10):
         search_results = twitter.search(q=query, count=count)
     except TwythonError as e:
         print(e)
+        return
     for tweet in search_results["statuses"]:
         # Make sure we don't retweet any dubplicates.
         if not is_in_logfile(
