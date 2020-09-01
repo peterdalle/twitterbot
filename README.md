@@ -20,6 +20,11 @@ Both functions (Reading RSS and retweeting) can be used independently. The bot i
    - Modify the variables in the `TwitterAuth` class and add keys, tokens etc. for connecting to your Twitter app.
    - Modify `retweet_include_words` for keywords you want to search and retweet, and `retweet_exclude_words` for keywords you would like to exclude from retweeting. For example `retweet_include_words = ["foo"]` and `retweet_exclude_words = ["bar"]` will include any tweet with the word "foo", as long as the word "bar" is absent. This list can also be left empty, i.e. `retweet_exclude_words = []`.
 
+## Requirements
+
+* Python 3+
+* Twitter account
+
 ## Usage
 
 Read the RSS feed and post to Twitter account:
