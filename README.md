@@ -57,4 +57,4 @@ Use the [cron schedule expression editor](https://crontab.guru/) to easily creat
 
 ## Questions
 
-See [Questions and answers](https://github.com/peterdalle/twitterbot/wiki) in the wiki.
+See [Questions and answers](https://github.com/peterdalle/twitterbot/wiki/Questions-and-answers) in the wiki.
